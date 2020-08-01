@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LostAngeles</string>
+    <string name="base_url">http://172.30.128.1:8080</string>
+</resources>
