@@ -8,8 +8,11 @@ class Route (var routeList: LinkedList<DestinationCampsiteNode>) {
         get() {
         return routeList.size
     }
+
     override fun toString(): String {
         val builder = StringBuilder()
+        builder.append("Total route time: $time")
+        builder.append(" Route: ")
         routeList.forEach {
             builder.append("$it, ")
         }

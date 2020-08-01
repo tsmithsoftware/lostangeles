@@ -9,6 +9,6 @@ class Trip(val route: Route?, val group: FamilyGroupModel): Serializable {
     }
 
     fun shortString(): String {
-        return "Trip for group ${group.familyId}"
+        return "Trip - group ${group.familyId} to caravan ${group.caravan}"
     }
 }

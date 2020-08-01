@@ -16,10 +16,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trips"
         android:layout_width="0dp"
-        android:layout_height="500dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/message"
         tools:listitem="@layout/recyclerview_item_row"
         />
 
@@ -30,8 +31,7 @@
         android:text="@string/load_visitors_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/trips" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

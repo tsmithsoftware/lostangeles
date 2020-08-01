@@ -35,7 +35,6 @@ class MainFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
         linearLayoutManager = LinearLayoutManager(activity)
         binding.trips.layoutManager = linearLayoutManager
-        binding.trips.setHasFixedSize(true)
         binding.trips.adapter = adapter
 
 
