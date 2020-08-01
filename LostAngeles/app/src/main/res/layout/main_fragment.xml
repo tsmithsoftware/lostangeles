@@ -13,15 +13,25 @@
     android:layout_height="match_parent"
     tools:context=".features.greet.app.ui.MainFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trips"
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/recyclerview_item_row"
+        />
+
     <Button
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load visitors for the day"
+        android:text="@string/load_visitors_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/trips" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

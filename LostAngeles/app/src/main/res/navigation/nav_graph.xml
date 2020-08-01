@@ -10,4 +10,24 @@
         android:name="com.timsmith.lostangeles.features.greet.app.ui.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.timsmith.lostangeles.features.greet.app.ui.DetailsFragment"
+        android:label="DetailsFragment" >
+        <argument
+            app:nullable="false"
+            android:name="Trip"
+            app:argType="com.timsmith.lostangeles.features.greet.app.models.Trip" />
+    </fragment>
+
+    <action
+        android:id="@+id/goToDetails"
+        app:destination="@id/detailsFragment">
+        <argument
+            app:nullable="false"
+            android:name="Trip"
+            app:argType="com.timsmith.lostangeles.features.greet.app.models.Trip"
+            />
+    </action>
+
 </navigation>
