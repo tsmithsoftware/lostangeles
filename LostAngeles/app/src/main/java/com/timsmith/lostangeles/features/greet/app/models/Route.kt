@@ -11,9 +11,10 @@ class Route (var routeList: LinkedList<DestinationCampsiteNode>) {
     override fun toString(): String {
         val builder = StringBuilder()
         routeList.forEach {
-            builder.append(it.toString())
+            builder.append("$it, ")
         }
-        return builder.toString()
+        val routeAsString = builder.deleteCharAt(builder.lastIndexOf(","))
+        return routeAsString.toString()
     }
 
     fun deepCopy(): Route {

@@ -37,7 +37,7 @@ object SiteMap {
         val destinationTenEdges = listOf(destinationNine, destinationEleven)
         val destinationElevenEdges = listOf(destinationTen, destinationTwelve)
         val destinationTwelveEdges = listOf(destinationEleven, destinationThirteen)
-        val destinationThirteenEdges = listOf(destinationOne, destinationSixteen)
+        val destinationThirteenEdges = listOf(destinationOne, destinationTwelve, destinationSixteen)
         val destinationFourteenEdges = listOf(destinationEight, destinationFifteen)
         val destinationFifteenEdges = listOf(destinationFourteen, destinationSixteen)
         val destinationSixteenEdges = listOf(destinationThirteen, destinationFifteen)

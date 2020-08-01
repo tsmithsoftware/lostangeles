@@ -10,7 +10,7 @@ class DestinationCampsiteNode(val id: Int) {
 
     override fun toString(): String {
         val builder = StringBuilder()
-        builder.append("ID: $id")
+        builder.append(" Campsite $id")
         return builder.toString()
     }
 

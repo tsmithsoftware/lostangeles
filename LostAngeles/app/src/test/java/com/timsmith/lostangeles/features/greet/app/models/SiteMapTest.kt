@@ -35,7 +35,7 @@ class SiteMapTest {
     private val destinationTenEdges = listOf(destinationNine, destinationEleven)
     private val destinationElevenEdges = listOf(destinationTen, destinationTwelve)
     private val destinationTwelveEdges = listOf(destinationEleven, destinationThirteen)
-    private val destinationThirteenEdges = listOf(destinationOne, destinationSixteen)
+    private val destinationThirteenEdges = listOf(destinationOne, destinationTwelve, destinationSixteen)
     private val destinationFourteenEdges = listOf(destinationEight, destinationFifteen)
     private val destinationFifteenEdges = listOf(destinationFourteen, destinationSixteen)
     private val destinationSixteenEdges = listOf(destinationThirteen, destinationFifteen)
