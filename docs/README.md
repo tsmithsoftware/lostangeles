@@ -1,5 +1,5 @@
 # lostangeles
-This project is an Android application built as a solution to the problem outlined in the project specifications outlined in lostangeles/app/docs/Lost_Angeles_final.pdf
+This project is an Android application built as a solution to the problem outlined in the project specifications outlined in lostangeles/docs/Lost_Angeles_final.pdf
 
 # Running the project
 In order to run the project, please either: <br/> 
