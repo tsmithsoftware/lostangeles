@@ -16,8 +16,11 @@ class Route (var routeList: LinkedList<DestinationCampsiteNode>) {
         routeList.forEach {
             builder.append("$it, ")
         }
-        val routeAsString = builder.deleteCharAt(builder.lastIndexOf(","))
-        return routeAsString.toString()
+        val indexOfComma = builder.lastIndexOf(",")
+        if (indexOfComma != -1) {
+            builder.deleteCharAt(builder.lastIndexOf(","))
+        }
+        return builder.toString()
     }
 
     fun deepCopy(): Route {

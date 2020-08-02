@@ -1,5 +1,6 @@
 package com.timsmith.lostangeles.features.greet.app.models
 
+import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -92,24 +93,45 @@ object SiteMap {
         return null
     }
 
-    private fun bfs(node: DestinationCampsiteNode) {
-        val neighbours: ArrayList<Edge> = node.connectedCampsites
-        node.visited = true
-        for (i in neighbours.indices) {
-            val n: DestinationCampsiteNode? = neighbours[i].end
-            n?.let {
-                if (!n.visited) {
-                    val newRoute = node.routeToNode.deepCopy()
-                    newRoute.routeList.add(n)
-                    n.routeToNode = newRoute
+    private val queue = LinkedList<DestinationCampsiteNode>()
+
+    private fun bfs(campsite: DestinationCampsiteNode) {
+        queue.add(campsite)
+        campsite.visited = true
+        while(!queue.isEmpty()) {
+            val nextCampsite = queue.remove()
+            val neighbours: ArrayList<Edge> = nextCampsite.connectedCampsites
+            searchOneLevel(neighbours, nextCampsite)
+            for (neighbourNode in neighbours) {
+                neighbourNode.end?.let {
+                    if (!it.visited) {
+                        queue.add(it)
+                        it.visited = true
+                    }
                 }
             }
         }
+    }
 
-        for(i in neighbours.indices) {
-            neighbours[i].end?.let {
-                if (!it.visited) {
-                    bfs(it)
+    private fun searchOneLevel(
+        nodeNeighbours: ArrayList<Edge>,
+        node: DestinationCampsiteNode
+    ) {
+        for (i in nodeNeighbours.indices) {
+            val nodeNeighbour: DestinationCampsiteNode? = nodeNeighbours[i].end
+            nodeNeighbour?.let {
+                val nodeNeighbourRouteList = nodeNeighbour.routeToNode.routeList
+                if (nodeNeighbourRouteList.size == 0) { // hasn't been initialised
+                    val newRoute = node.routeToNode.deepCopy()
+                    newRoute.routeList.add(nodeNeighbour)
+                    nodeNeighbour.routeToNode = newRoute
+                } else if (
+                    (nodeNeighbourRouteList.size > (node.routeToNode.routeList.size + 1 )) && // check route is shorter
+                    (!node.routeToNode.routeList.contains(nodeNeighbour)) //check we're not backtracking
+                ) {
+                    val newRoute = node.routeToNode.deepCopy()
+                    newRoute.routeList.add(nodeNeighbour)
+                    nodeNeighbour.routeToNode = newRoute
                 }
             }
         }
