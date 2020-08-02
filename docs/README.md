@@ -3,8 +3,8 @@ This project is an Android application built as a solution to the problem outlin
 
 # Running the project
 In order to run the project, please either: <br/> 
-<li>check out the repository as an Android Studio project and run from within Studio</li>
-<li>run gradlew assembleDebug from the projects root directory and install the resulting build on a simulator/device</li>
+<li>check out the repository as an Android Studio project and run from within Studio, or</li>
+<li>run gradlew assembleDebug from the projects root directory and install the resulting build on a simulator/device, or</li>
 <li>install the .apk build provided at /app/build/outputs/apk/debug/app-debug.apk on a simulator/device</li>
 
 # Project structure
@@ -23,5 +23,6 @@ In terms of the abstractions used to model the problem domain, the MainFragment:
 <p>
 The user of the application can then select the particular trip to see the details of that trip, including time spent and route taken.
 </p> 
-The SiteMap is currently hardcoded from the project spec, and uses a breadth-first search algorithm to populate the graph. Areas for further development could include loading/saving the SiteMap from a JSON file.
+The SiteMap is currently hardcoded from the project spec, and uses a breadth-first search algorithm to find the fastest routes to all nodes. Areas for further development could include loading/saving the SiteMap from a JSON file, which would allow more flexibility.
+
 
