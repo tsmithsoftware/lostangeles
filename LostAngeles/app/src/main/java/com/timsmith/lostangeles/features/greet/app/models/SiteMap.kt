@@ -88,7 +88,7 @@ object SiteMap {
 
     private fun getShortestRouteFor(destination: DestinationCampsiteNode?): Route? {
         nodes[1]?.let {
-            bfs(it)
+            breadthFirstSearch(it)
         }
         destination?.let {
             return nodes[destination.id]?.routeToNode
@@ -98,7 +98,11 @@ object SiteMap {
 
     private val queue = LinkedList<DestinationCampsiteNode>()
 
-    private fun bfs(campsite: DestinationCampsiteNode) {
+    /**
+     * Uses a breadth-first search to populate the map.
+     * @param campsite the initial node to populate the graph from
+     */
+    private fun breadthFirstSearch(campsite: DestinationCampsiteNode) {
         queue.add(campsite)
         campsite.visited = true
         while(!queue.isEmpty()) {
@@ -116,6 +120,9 @@ object SiteMap {
         }
     }
 
+    /**
+     * Set the campsite route for a single level in the search graph
+     */
     private fun searchOneLevel(
         nodeNeighbours: ArrayList<Edge>,
         node: DestinationCampsiteNode
@@ -124,7 +131,7 @@ object SiteMap {
             val nodeNeighbour: DestinationCampsiteNode? = nodeNeighbours[i].end
             nodeNeighbour?.let {
                 val nodeNeighbourRouteList = nodeNeighbour.routeToNode.routeList
-                if (nodeNeighbourRouteList.size == 0) { // hasn't been initialised
+                if (nodeNeighbourRouteList.size == 0) { // if node hasn't been initialised
                     val newRoute = node.routeToNode.deepCopy()
                     newRoute.routeList.add(nodeNeighbour)
                     nodeNeighbour.routeToNode = newRoute
