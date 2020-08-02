@@ -8,6 +8,9 @@ interface IGate {
     fun hasGroups(): Boolean
 }
 
+/**
+ * An Object representing a gate at which families arrive to be picked up
+ */
 class MainGate(private val groups: LinkedList<FamilyGroupModel>): IGate {
     override fun getNextGroup(): FamilyGroupModel? {
         return groups.pop()

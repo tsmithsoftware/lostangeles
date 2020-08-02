@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.timsmith.lostangeles.features.greet.domain.models.FamilyGroupModel
 import com.timsmith.lostangeles.features.greet.domain.usecases.GetDailyFamilyGroupsUseCase
 import io.reactivex.Observer
-import io.reactivex.Scheduler
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

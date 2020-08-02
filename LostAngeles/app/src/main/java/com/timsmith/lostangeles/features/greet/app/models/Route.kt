@@ -3,6 +3,10 @@ package com.timsmith.lostangeles.features.greet.app.models
 import java.lang.StringBuilder
 import java.util.*
 
+/**
+ * An object representing a route to be taken to a particular campsite
+ * @param routeList A LinkedList of campsites representing the order each campsite should be travelled through from the gate to the destination
+ */
 class Route (var routeList: LinkedList<DestinationCampsiteNode>) {
     val time: Int
         get() {

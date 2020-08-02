@@ -4,6 +4,9 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
+/**
+ * Represents the campsite layout. Builds out the search graph and provides the quickest route to a particular DestinationCampsite
+ */
 object SiteMap {
     var nodes: HashMap<Int, DestinationCampsiteNode> = HashMap()
 

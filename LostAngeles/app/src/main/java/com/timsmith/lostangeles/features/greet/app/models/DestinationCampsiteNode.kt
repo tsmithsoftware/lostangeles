@@ -3,6 +3,11 @@ package com.timsmith.lostangeles.features.greet.app.models
 import java.util.*
 import kotlin.text.StringBuilder
 
+/**
+ * A class representing a campsite destination
+ * A campsite is represented as having a set of connected campsites as node edges
+ * @param id the ID number of the campsite
+ */
 class DestinationCampsiteNode(val id: Int) {
     var connectedCampsites: ArrayList<Edge> = arrayListOf()
     var routeToNode: Route = Route(LinkedList())

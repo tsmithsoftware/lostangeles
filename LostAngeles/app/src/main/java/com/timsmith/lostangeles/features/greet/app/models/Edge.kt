@@ -1,5 +1,8 @@
 package com.timsmith.lostangeles.features.greet.app.models
 
+/**
+ * A class representing a connection between campsites
+ */
 class Edge (
     var start: DestinationCampsiteNode? = null,
     var end: DestinationCampsiteNode? = null,
