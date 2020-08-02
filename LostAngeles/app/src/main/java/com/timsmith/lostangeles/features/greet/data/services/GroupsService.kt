@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface GroupsService {
 
-    @GET("/groups")
+    @GET("/tech+test+json.json")
     fun getFamilyGroupList(): Single<List<FamilyGroupDataModel>>
 }

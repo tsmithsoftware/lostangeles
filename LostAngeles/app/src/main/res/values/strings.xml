@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">LostAngeles</string>
-    <string name="base_url">http://172.30.128.1:8080</string>
+    <string name="base_url">https://haven-tech-test.s3-eu-west-1.amazonaws.com/</string>
     <string name="load_visitors_title">Load visitors for the day</string>
 </resources>
