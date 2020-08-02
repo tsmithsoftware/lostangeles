@@ -1,5 +1,5 @@
 # lostangeles
-This project is an Android application built as a solution to the problem outlined in the project specifications outlined in lostangeles/docs/Lost_Angeles_final.pdf
+This project is an Android application built as a solution to the problem outlined in [the project specification outlined here](./Lost_Angeles_final.pdf).
 
 # Running the project
 In order to run the project, please either: <br/> 
@@ -23,3 +23,5 @@ In terms of the abstractions used to model the problem domain, the MainFragment:
 <p>
 The user of the application can then select the particular trip to see the details of that trip, including time spent and route taken.
 </p> 
+The SiteMap is currently hardcoded from the project spec, and uses a breadth-first search algorithm to populate the graph. Areas for further development could include loading/saving the SiteMap from a JSON file.
+
