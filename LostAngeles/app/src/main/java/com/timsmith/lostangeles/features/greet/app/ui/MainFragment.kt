@@ -29,6 +29,7 @@ class MainFragment : Fragment() {
     private lateinit var binding: MainFragmentBinding
     private lateinit var linearLayoutManager: LinearLayoutManager
     private var adapter = TripAdapter(listOf())
+    private var carts = ArrayList<Cart>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -39,14 +40,25 @@ class MainFragment : Fragment() {
 
 
         binding.message.setOnClickListener {
-            mainViewModel.getFamilyList().observe(viewLifecycleOwner, Observer {
-                Log.d(this@MainFragment.javaClass.canonicalName, "Family list count: ${ it.count() }")
-                val gate = MainGate(LinkedList(it))
-                Cart.startAndWriteToLedger(gate)
-                val trips = Ledger.getTrips()
-                for (trip in trips) {
-                    Log.d(this@MainFragment.javaClass.simpleName, "$trip")
+            mainViewModel.getFamilyList().observe(viewLifecycleOwner, Observer { familyGroups ->
+                Ledger.clear()
+                Log.d(this@MainFragment.javaClass.canonicalName, "Family list count: ${ familyGroups.count() }")
+                val gate = MainGate(LinkedList(familyGroups))
+                val bob = Cart("Bob")
+                val alice = Cart("Alice")
+                carts.add(bob)
+                carts.add(alice)
+
+                while (gate.hasGroups()) {
+                    gate.getNextGroup()?.let { family ->
+                        val firstFreeCart = carts.firstOrNull() { it.timeLeftOnRoute == 0 }
+                        firstFreeCart?.takeGroup(family)
+                        for (cart in carts) {
+                            cart.decrementTimeByOne()
+                        }
+                    }
                 }
+                val trips = Ledger.getTrips()
                 adapter.setTripList(trips)
                 Log.d(this@MainFragment.javaClass.simpleName, "Ledge count: ${ trips.size }")
             })
